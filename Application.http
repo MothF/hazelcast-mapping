@@ -1,0 +1,26 @@
+###
+
+GET http://localhost:8080/api/v1/clear
+
+###
+
+GET http://localhost:8080/api/v2/clear
+
+###
+
+GET http://localhost:8080/api/v1/get/4
+
+###
+
+GET http://localhost:8080/api/v1/put/5
+
+###
+
+GET http://localhost:8080/api/v2/get/1
+
+###
+
+GET http://localhost:8080/api/v2/put/5
+
+###
+
