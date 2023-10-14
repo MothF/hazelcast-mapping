@@ -1,7 +1,7 @@
-package com.liqui.cache;
+package com.deiv.cache;
 
 import com.hazelcast.core.HazelcastInstance;
-import com.liqui.model.v1.HzStoredModel;
+import com.deiv.model.v1.HzStoredModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class CacheV1 implements Cache<HzStoredModel> {
     private static final Logger log = LoggerFactory.getLogger(CacheV1.class);
 
-    private static final String CACHE_NAME = "model_v3_cache";
+    private static final String CACHE_NAME = "0_model_v1_cache";
 
     private final HazelcastInstance hazelcastInstance;
 
@@ -27,7 +27,7 @@ public class CacheV1 implements Cache<HzStoredModel> {
             var o = (HzStoredModel) map.get(key);
             return Optional.ofNullable(o);
         } catch (Exception ex) {
-            log.error("Не удалось получить объект из кэша по {}", key, ex);
+            log.error("Unable to get from cache {}", key, ex);
             return Optional.empty();
         }
     }
@@ -39,7 +39,7 @@ public class CacheV1 implements Cache<HzStoredModel> {
             map.put(key, value);
             return true;
         } catch (Exception ex) {
-            log.error("Не удалось положить объект из кэша по ключу {}", key, ex);
+            log.error("Unable to put to cache by {}", key, ex);
             return false;
         }
     }

@@ -1,15 +1,14 @@
-package com.liqui.controller;
+package com.deiv.controller;
 
-import com.liqui.cache.Cache;
-import com.liqui.cache.CacheV1;
-import com.liqui.model.v1.HzStoredModel;
+import com.deiv.cache.Cache;
+import com.deiv.model.v1.HzStoredModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/api/v1")
 @RestController
-public class ControllerV1 implements CacheController {
+public class ControllerV1 implements CacheController<HzStoredModel> {
 
     private final Cache<HzStoredModel> cacheV1;
 
@@ -19,7 +18,7 @@ public class ControllerV1 implements CacheController {
 
     @Override
     public ResponseEntity<String> put(String key) {
-        var success = cacheV1.put(key, createModel(key));
+        var success = cacheV1.put(key, new HzStoredModel(key));
         if (success) return ResponseEntity.ok(key);
         return ResponseEntity.badRequest().build();
     }
@@ -36,12 +35,5 @@ public class ControllerV1 implements CacheController {
         var success = cacheV1.clear();
         if (success) return ResponseEntity.ok().build();
         return ResponseEntity.internalServerError().build();
-    }
-
-    private HzStoredModel createModel(String key) {
-        var hzStoredModel = new HzStoredModel();
-        hzStoredModel.setAmount(Integer.parseInt(key));
-        hzStoredModel.setValue("value");
-        return hzStoredModel;
     }
 }

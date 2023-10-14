@@ -1,7 +1,6 @@
-package com.liqui.cache;
+package com.deiv.cache;
 
-import com.liqui.model.ModelMarker;
-import com.liqui.model.v1.HzStoredModel;
+import com.deiv.model.ModelMarker;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.liqui.model;
+package com.deiv.model;
 
 public interface ModelMarker {
 }

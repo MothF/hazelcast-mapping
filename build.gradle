@@ -13,6 +13,10 @@ repositories {
 }
 
 dependencies {
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.7.16'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json', version: '2.7.16'
 

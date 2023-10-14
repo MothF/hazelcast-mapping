@@ -1,4 +1,4 @@
-package com.liqui;
+package com.deiv;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
